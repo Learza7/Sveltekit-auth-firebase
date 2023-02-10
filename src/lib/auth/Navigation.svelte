@@ -34,3 +34,9 @@
     </div>
   </nav>
 </header>
+
+<style>
+  .text-black{
+    color: black;
+  }
+</style>

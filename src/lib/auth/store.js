@@ -8,7 +8,7 @@ import {
     FacebookAuthProvider,
 } from "firebase/auth";
 import { writable } from "svelte/store";
-import { auth, database } from "../firebase/client";
+import { auth} from "../firebase/client";
 import { goto } from "$app/navigation";
 import { ref, set } from "firebase/database";
 
@@ -67,31 +67,31 @@ export async function signInWithFacebook() {
             })
 }
 
-export async function signUpWithEmail(user_info) {
-    createUserWithEmailAndPassword(
-        auth,
-        user_info.email,
-        user_info.password
+// export async function signUpWithEmail(user_info) {
+//     createUserWithEmailAndPassword(
+//         auth,
+//         user_info.email,
+//         user_info.password
 
-    ).then(
-        userCredential => {
-            const user_created = userCredential.user;
+//     ).then(
+//         userCredential => {
+//             const user_created = userCredential.user;
           
-            set(ref(database, 'users/' + user_created.uid), {
-                first_name: user_info.first_name,
-                last_name: user_info.last_name,
-                email: user_info.email,
-            })
-            goto('/account')
-        }
-    ).catch(
-        error => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage)
-        }
-    )
-}
+//             set(ref(database, 'users/' + user_created.uid), {
+//                 first_name: user_info.first_name,
+//                 last_name: user_info.last_name,
+//                 email: user_info.email,
+//             })
+//             goto('/account')
+//         }
+//     ).catch(
+//         error => {
+//             const errorCode = error.code;
+//             const errorMessage = error.message;
+//             console.log(errorCode, errorMessage)
+//         }
+//     )
+// }
 
 
 
