@@ -1,6 +1,7 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import {
   PUBLIC_FIREBASE_PROJECT_ID,
   PUBLIC_FIREBASE_API_KEY,
@@ -33,3 +34,6 @@ function makeApp() {
 export const app = makeApp();
 export const auth = getAuth(app);
 export const database = getDatabase(app);
+export const analytics = isSupported().then(yes => yes ? getAnalytics(app) : null) ;
+
+

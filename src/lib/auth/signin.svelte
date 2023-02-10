@@ -13,15 +13,15 @@
 </script>
 
 <form on:submit|preventDefault={signIn} class="d-flex justify-content-center">
-  <div class="form-group" style={{ width: "100%" }}>
-    <div class="form-group" style={{ maxWidth: "50%" }}>
+  <div class="form-group">
+    <div class="form-group">
       <label for="email" class="mt-2">Email:</label>
       <input
         class="form-control mt-1"
         type="email"
         name="email"
         required
-        placeholder="someone@somewhere.com"
+        placeholder=""
       />
 
       <label for="password" class="mt-2">Password:</label>
@@ -36,3 +36,5 @@
     </div>
   </div>
 </form>
+
+

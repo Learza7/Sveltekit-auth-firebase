@@ -107,7 +107,7 @@ if (browser) {
     user.set(newUser);
 
     if (!tokenCurrentlySet && token) {
-    //   document.location.reload();
+      // document.location.reload();
 
     }
   });

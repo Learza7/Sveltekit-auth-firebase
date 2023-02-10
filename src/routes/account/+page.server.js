@@ -7,7 +7,9 @@ export async function load({ cookies }) {
     const token = cookies.get("token");
 
     if (!token) {
+      console.log("account redirect");
       throw redirect(307, "/");
+      
     }
 
 
@@ -18,6 +20,8 @@ export async function load({ cookies }) {
   } catch {
     // The token is set but invalid or expired
     cookies.set("token", "", { maxAge: -1 });
+    console.log("account redirect");
     throw redirect(307, "/");
+    
   }
 }
